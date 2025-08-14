@@ -104,7 +104,8 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
         final boolean spying,
         final boolean ignoreDirectMessages,
         final @Nullable UUID party,
-        final boolean applyOptionalChatFilters
+        final boolean applyOptionalChatFilters,
+        final boolean noChatFormat
     ) {
         this.muted = PersistentUserProperty.of(muted);
         this.muteExpiration = PersistentUserProperty.of(muteExpiration);
@@ -121,7 +122,7 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
         this.ignoringDirectMessages = PersistentUserProperty.of(ignoreDirectMessages);
         this.party = PersistentUserProperty.of(party);
         this.applyOptionalChatFilters = PersistentUserProperty.of(applyOptionalChatFilters);
-    this.noChatFormat = PersistentUserProperty.of(false);
+        this.noChatFormat = PersistentUserProperty.of(noChatFormat);
     }
 
     public CarbonPlayerCommon(
@@ -143,8 +144,7 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
         this.ignoringDirectMessages = PersistentUserProperty.of(false);
         this.party = PersistentUserProperty.empty();
         this.applyOptionalChatFilters = PersistentUserProperty.of(false);
-    this.noChatFormat = PersistentUserProperty.of(false);
-    this.noChatFormat = PersistentUserProperty.of(false);
+        this.noChatFormat = PersistentUserProperty.of(false);
     }
 
     public CarbonPlayerCommon() {
@@ -161,6 +161,7 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
         this.leftChannels = PersistentUserProperty.of(Collections.emptySet());
         this.ignoringDirectMessages = PersistentUserProperty.of(false);
         this.party = PersistentUserProperty.empty();
+        this.noChatFormat = PersistentUserProperty.of(false);
     }
 
     public boolean needsSave() {
