@@ -267,7 +267,8 @@ public final class DatabaseUserManager extends CachingUserManager {
             .bind("spying", player.spying())
             .bind("ignoringdms", player.ignoringDirectMessages())
             .bind("party", player.partyId())
-            .bind("applycustomfilters", player.applyOptionalChatFilters());
+            .bind("applycustomfilters", player.applyOptionalChatFilters())
+            .bind("nochatformat", player.noChatFormat());
     }
 
     public static final class Factory {

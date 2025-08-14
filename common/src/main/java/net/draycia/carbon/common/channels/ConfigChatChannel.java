@@ -151,13 +151,18 @@ public class ConfigChatChannel implements ChatChannel {
         final Component message,
         final Component originalMessage
     ) {
+        Component msg = message;
+        if (recipient instanceof CarbonPlayer rp && rp.noChatFormat()) {
+            // Strip formatting from message body only
+            msg = Component.text(net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer.plainText().serialize(message));
+        }
         return this.carbonMessages().chatFormat(
             SourcedAudience.of(sender, recipient),
             sender.uuid(),
             this.key(),
             sender.displayName(),
             sender.username(),
-            message,
+            msg,
             Component.text("null")
         );
     }

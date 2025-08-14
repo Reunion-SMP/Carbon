@@ -10,5 +10,6 @@ SELECT
     spying,
     ignoringdms,
     party,
-    applycustomfilters
+    applycustomfilters,
+    nochatformat
 FROM carbon_users WHERE (id = :id);

@@ -270,7 +270,15 @@ public class ConsoleCarbonPlayer implements CarbonPlayer, ForwardingAudience.Sin
 
     @Override
     public void applyOptionalChatFilters(final boolean applyOptionalChatFilters) {
+    }
 
+    @Override
+    public boolean noChatFormat() {
+        return false;
+    }
+
+    @Override
+    public void noChatFormat(final boolean noChatFormat) {
     }
 
     @Override

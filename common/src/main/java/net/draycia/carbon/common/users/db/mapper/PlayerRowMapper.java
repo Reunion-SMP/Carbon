@@ -50,7 +50,8 @@ public final class PlayerRowMapper implements RowMapper<CarbonPlayerCommon> {
             rs.getBoolean("spying"),
             rs.getBoolean("ignoringdms"),
             uuid.map(rs, "party", ctx),
-            rs.getBoolean("applycustomfilters")
+            rs.getBoolean("applycustomfilters"),
+            rs.getBoolean("nochatformat")
         );
     }
 

@@ -31,6 +31,8 @@ import net.draycia.carbon.common.CarbonPlatformModule;
 import net.draycia.carbon.common.DataDirectory;
 import net.draycia.carbon.common.PlatformScheduler;
 import net.draycia.carbon.common.RawChat;
+import net.draycia.carbon.common.command.CarbonCommand;
+import com.google.inject.Scopes;
 import net.draycia.carbon.common.command.Commander;
 import net.draycia.carbon.common.command.ExecutionCoordinatorHolder;
 import net.draycia.carbon.common.integration.Integration;
@@ -41,6 +43,7 @@ import net.draycia.carbon.common.users.ProfileResolver;
 import net.draycia.carbon.common.util.CloudUtils;
 import net.draycia.carbon.paper.command.PaperCommander;
 import net.draycia.carbon.paper.command.PaperPlayerCommander;
+import net.draycia.carbon.paper.command.NoChatFormatCommand;
 import net.draycia.carbon.paper.integration.dsrv.DSRVIntegration;
 import net.draycia.carbon.paper.integration.essxd.EssXDIntegration;
 import net.draycia.carbon.paper.integration.fuuid.FactionsIntegration;
@@ -103,6 +106,9 @@ public final class CarbonChatPaperModule extends CarbonPlatformModule {
     @Override
     protected void configurePlatform() {
         this.install(new CarbonCommonModule());
+    // Paper-specific commands
+    final Multibinder<CarbonCommand> commands = Multibinder.newSetBinder(this.binder(), CarbonCommand.class);
+    commands.addBinding().to(NoChatFormatCommand.class).in(Scopes.SINGLETON);
 
         this.bind(CarbonChat.class).to(CarbonChatPaper.class);
         this.bind(JavaPlugin.class).toInstance(this.bootstrap);

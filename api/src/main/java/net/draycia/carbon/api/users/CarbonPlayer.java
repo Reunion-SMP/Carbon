@@ -446,4 +446,23 @@ public interface CarbonPlayer extends Audience, Identified {
      */
     void applyOptionalChatFilters(boolean applyOptionalChatFilters);
 
+    /**
+     * Whether this player has disabled chat message formatting (MiniMessage tags)
+     * from OTHER players' chat messages. Prefixes and usernames will remain
+     * formatted; only the message body will be stripped to plain text.
+     *
+     * @return if this player sees unformatted chat message bodies
+     * @since 3.0.0
+     */
+    boolean noChatFormat();
+
+    /**
+     * Sets whether this player has disabled chat message formatting (MiniMessage tags)
+     * from OTHER players' chat messages. Prefixes and usernames remain formatted.
+     *
+     * @param noChatFormat new state
+     * @since 3.0.0
+     */
+    void noChatFormat(boolean noChatFormat);
+
 }

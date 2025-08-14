@@ -9,5 +9,6 @@ UPDATE carbon_users SET
     spying = :spying,
     ignoringdms = :ignoringdms,
     party = :party,
-    applycustomfilters = :applycustomfilters
+    applycustomfilters = :applycustomfilters,
+    nochatformat = :nochatformat
 WHERE (id = :id);

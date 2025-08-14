@@ -10,7 +10,8 @@ INSERT{!PSQL: IGNORE} INTO carbon_users(
     spying,
     ignoringdms,
     party,
-    applycustomfilters
+    applycustomfilters,
+    nochatformat
 ) VALUES (
     :id,
     :muted,
@@ -23,5 +24,6 @@ INSERT{!PSQL: IGNORE} INTO carbon_users(
     :spying,
     :ignoringdms,
     :party,
-    :applycustomfilters
+    :applycustomfilters,
+    :nochatformat
 ){PSQL: ON CONFLICT DO NOTHING};

@@ -82,6 +82,7 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
     // Administrative
     protected final PersistentUserProperty<Boolean> spying;
     protected final PersistentUserProperty<Boolean> applyOptionalChatFilters;
+    protected final PersistentUserProperty<Boolean> noChatFormat;
 
     // Punishments
     protected final PersistentUserProperty<Set<UUID>> ignoredPlayers;
@@ -120,6 +121,7 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
         this.ignoringDirectMessages = PersistentUserProperty.of(ignoreDirectMessages);
         this.party = PersistentUserProperty.of(party);
         this.applyOptionalChatFilters = PersistentUserProperty.of(applyOptionalChatFilters);
+    this.noChatFormat = PersistentUserProperty.of(false);
     }
 
     public CarbonPlayerCommon(
@@ -141,6 +143,8 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
         this.ignoringDirectMessages = PersistentUserProperty.of(false);
         this.party = PersistentUserProperty.empty();
         this.applyOptionalChatFilters = PersistentUserProperty.of(false);
+    this.noChatFormat = PersistentUserProperty.of(false);
+    this.noChatFormat = PersistentUserProperty.of(false);
     }
 
     public CarbonPlayerCommon() {
@@ -178,6 +182,7 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
             this.leftChannels,
             this.ignoringDirectMessages,
             this.party
+            , this.noChatFormat
         );
     }
 
@@ -548,6 +553,14 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
     @Override
     public void applyOptionalChatFilters(final boolean applyOptionalChatFilters) {
         this.applyOptionalChatFilters.set(applyOptionalChatFilters);
+    }
+
+    public boolean noChatFormat() {
+        return this.noChatFormat.get();
+    }
+
+    public void noChatFormat(final boolean noChatFormat) {
+        this.noChatFormat.set(noChatFormat);
     }
 
 }
