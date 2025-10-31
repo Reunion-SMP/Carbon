@@ -48,4 +48,13 @@ hangarPublish.publications.register("plugin") {
       }
     }
   }
+  subprojects {
+    tasks.withType<JavaCompile>().configureEach {
+        options.compilerArgs.addAll(listOf(
+            "-Xlint:-deprecation",
+            "-Xlint:-serial",
+            "-Xlint:-this-escape"
+        ))
+    }
+  }
 }

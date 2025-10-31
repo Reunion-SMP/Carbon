@@ -64,7 +64,10 @@ public class CarbonPAPIPlaceholders extends PlaceholderExpansion {
         this.stringResolvers = Map.of(
             "channel_key", this::selectedChannelKey
         );
-        this.register();
+    }
+
+    public void init() {
+    this.register();
     }
 
     @Override
