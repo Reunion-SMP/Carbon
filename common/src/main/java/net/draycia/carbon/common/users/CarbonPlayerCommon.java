@@ -182,8 +182,8 @@ public class CarbonPlayerCommon implements CarbonPlayer, ForwardingAudience.Sing
             this.ignoredPlayers,
             this.leftChannels,
             this.ignoringDirectMessages,
-            this.party
-            , this.noChatFormat
+            this.party,
+            this.noChatFormat
         );
     }
 
