@@ -28,6 +28,11 @@ jobs:
         # gradle build action can't handle project dir local caches
       - name: Build
         run: ./gradlew build --stacktrace
+      - name: Upload JARs as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: carbonchat-jars
+          path: build/libs/*.jar
   smoketest:
     needs: build
     runs-on: ubuntu-latest
