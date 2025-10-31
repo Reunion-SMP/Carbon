@@ -67,7 +67,7 @@ public class CarbonPAPIPlaceholders extends PlaceholderExpansion {
     }
 
     public void init() {
-    this.register();
+        this.register();
     }
 
     @Override
