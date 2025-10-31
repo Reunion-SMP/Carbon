@@ -1,5 +1,16 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
+pluginManagement {
+    includeBuild("build-logic")
+
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+
 dependencyResolutionManagement {
   repositories {
     mavenCentral {
@@ -9,15 +20,12 @@ dependencyResolutionManagement {
       mavenContent {
         snapshotsOnly()
         includeModuleByRegex("de\\.hexaoxi", "messenger-.*")
-        includeModule("org.incendo", "cloud-sponge")
         includeModule("com.seiama", "registry")
         includeModule("com.seiama", "event-api")
       }
     }
     // PaperMC
     maven("https://repo.papermc.io/repository/maven-public/")
-    // Sponge API
-    maven("https://repo.spongepowered.org/repository/maven-public/")
     // PlaceholderAPI
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/") {
       content { includeGroup("me.clip") }
